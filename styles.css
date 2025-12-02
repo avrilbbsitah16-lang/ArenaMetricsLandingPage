@@ -93,7 +93,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* ========== SECCIONES GENERALES (SIN CAMBIOS) ========== */
+/* ========== SECCIONES GENERALES ========== */
 .seccion-inicio {
   padding: 120px 50px 80px;
   position: relative;
@@ -152,26 +152,30 @@ body {
 }
 
 .imagen-seccion {
-  max-width: 190%;
+  max-width: 190%; /* ← VUELVE A 190% */
   height: auto;
-  max-height: 1200px;
+  max-height: 1200px; /* ← VUELVE A 1200px */
   filter: drop-shadow(0 25px 70px rgba(255, 107, 157, 0.5));
   animation: float 6s ease-in-out infinite;
 }
 
-@keyframes float {
+.seccion-jugadores .imagen-seccion,
+.seccion-entrenadores .imagen-seccion {
+  max-width: 80%;
+  max-height: 450px;
+}
 
+@keyframes float {
   0%,
   100% {
     transform: translateY(0);
   }
-
   50% {
     transform: translateY(-25px);
   }
 }
 
-/* ========== LOGOS DE JUEGOS (SIN CAMBIOS) ========== */
+/* ========== LOGOS DE JUEGOS ========== */
 .logos-juegos {
   display: flex;
   gap: 18px;
@@ -205,7 +209,7 @@ body {
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
 }
 
-/* ========== BOTONES CTA (SIN CAMBIOS) ========== */
+/* ========== BOTONES CTA ========== */
 .botones-hero {
   display: flex;
   gap: 20px;
@@ -222,7 +226,6 @@ body {
   position: relative;
   overflow: hidden;
   min-width: 250px;
-
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
@@ -231,16 +234,20 @@ body {
 }
 
 .btn-jugador {
-  background: linear-gradient(135deg,
-      rgba(255, 107, 157, 0.25),
-      rgba(255, 143, 163, 0.15));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 157, 0.25),
+    rgba(255, 143, 163, 0.15)
+  );
   border-color: rgba(255, 107, 157, 0.3);
 }
 
 .btn-entrenador {
-  background: linear-gradient(135deg,
-      rgba(107, 91, 149, 0.25),
-      rgba(142, 124, 195, 0.15));
+  background: linear-gradient(
+    135deg,
+    rgba(107, 91, 149, 0.25),
+    rgba(142, 124, 195, 0.15)
+  );
   border-color: rgba(107, 91, 149, 0.3);
 }
 
@@ -250,16 +257,20 @@ body {
 }
 
 .btn-jugador:hover {
-  background: linear-gradient(135deg,
-      rgba(255, 107, 157, 0.35),
-      rgba(255, 143, 163, 0.25));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 157, 0.35),
+    rgba(255, 143, 163, 0.25)
+  );
   border-color: rgba(255, 107, 157, 0.5);
 }
 
 .btn-entrenador:hover {
-  background: linear-gradient(135deg,
-      rgba(107, 91, 149, 0.35),
-      rgba(142, 124, 195, 0.25));
+  background: linear-gradient(
+    135deg,
+    rgba(107, 91, 149, 0.35),
+    rgba(142, 124, 195, 0.25)
+  );
   border-color: rgba(107, 91, 149, 0.5);
 }
 
@@ -280,7 +291,7 @@ body {
   text-align: center;
 }
 
-/* ========== LISTA CARACTERÍSTICAS (SIN CAMBIOS) ========== */
+/* ========== LISTA CARACTERÍSTICAS ========== */
 .lista-caracteristicas {
   list-style: none;
   margin: 20px 0;
@@ -325,7 +336,7 @@ body {
   display: inline-block;
 }
 
-/* ========== VISUALIZA PLATAFORMA (CORREGIDO) ========== */
+/* ========== VISUALIZA PLATAFORMA ========== */
 .seccion-visualiza {
   padding: 140px 50px 80px;
   position: relative;
@@ -425,7 +436,7 @@ body {
   padding-top: 20px;
 }
 
-/* ========== INTEGRACIONES (CORREGIDO) ========== */
+/* ========== INTEGRACIONES ========== */
 .seccion-integraciones {
   padding: 140px 50px 80px;
   position: relative;
@@ -528,7 +539,7 @@ body {
   z-index: 1;
 }
 
-/* ========== TESTIMONIOS (CORREGIDO) ========== */
+/* ========== TESTIMONIOS ========== */
 .seccion-testimonios {
   padding: 140px 50px 80px;
   position: relative;
@@ -783,10 +794,12 @@ body {
   height: 600px;
   top: 5%;
   right: 10%;
-  background: radial-gradient(circle,
-      rgba(255, 107, 157, 0.4) 0%,
-      rgba(147, 51, 234, 0.25) 40%,
-      rgba(255, 107, 157, 0) 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 107, 157, 0.4) 0%,
+    rgba(147, 51, 234, 0.25) 40%,
+    rgba(255, 107, 157, 0) 70%
+  );
 }
 
 .circulo-2 {
@@ -794,10 +807,12 @@ body {
   height: 800px;
   bottom: -20%;
   right: 0%;
-  background: radial-gradient(circle,
-      rgba(147, 51, 234, 0.45) 0%,
-      rgba(107, 91, 149, 0.3) 40%,
-      rgba(147, 51, 234, 0) 70%);
+  background: radial-gradient(
+    circle,
+    rgba(147, 51, 234, 0.45) 0%,
+    rgba(107, 91, 149, 0.3) 40%,
+    rgba(147, 51, 234, 0) 70%
+  );
 }
 
 .circulo-3,
@@ -810,9 +825,11 @@ body {
   height: 400px;
   top: 20%;
   left: -100px;
-  background: radial-gradient(circle,
-      rgba(255, 107, 157, 0.3) 0%,
-      transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 107, 157, 0.3) 0%,
+    transparent 70%
+  );
 }
 
 .circulo-4,
@@ -824,9 +841,11 @@ body {
   height: 500px;
   bottom: 10%;
   right: -100px;
-  background: radial-gradient(circle,
-      rgba(147, 51, 234, 0.3) 0%,
-      transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(147, 51, 234, 0.3) 0%,
+    transparent 70%
+  );
 }
 
 /* ========== RESPONSIVE ========== */
@@ -850,7 +869,13 @@ body {
   }
 
   .imagen-seccion {
-    max-height: 600px;
+    max-height: 500px;
+  }
+
+  .seccion-jugadores .imagen-seccion,
+  .seccion-entrenadores .imagen-seccion {
+    max-width: 70%;
+    max-height: 400px;
   }
 }
 
@@ -921,8 +946,14 @@ body {
   }
 
   .imagen-seccion {
-    max-height: 450px;
-    max-width: 100%;
+    max-height: 400px;
+    max-width: 90%;
+  }
+
+  .seccion-jugadores .imagen-seccion,
+  .seccion-entrenadores .imagen-seccion {
+    max-width: 85%;
+    max-height: 350px;
   }
 
   .dispositivos-container {
@@ -1011,89 +1042,10 @@ body {
   .titulo-centrado {
     font-size: 2rem;
   }
-}
 
-/* ========== RESPONSIVE ========== */
-@media (max-width: 768px) {
-  .top-header {
-    padding: 0 20px;
-  }
-
-  .menu-toggle {
-    display: block;
-    z-index: 1001;
-  }
-
-  .menu-horizontal {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    height: 100vh;
-    background: rgba(25, 1, 19, 0.95);
-    backdrop-filter: blur(15px);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: 0.3s;
-    z-index: 1000;
-  }
-
-  .menu-horizontal.active {
-    right: 0;
-  }
-
-  .cont-gral-inicio {
-    flex-direction: column;
-    text-align: center;
-    padding-top: 50px;
-  }
-
-  .cont-ini-texto {
-    max-width: 100%;
-  }
-
-  .cont-ini-texto h2 {
-    font-size: 2.5rem;
-  }
-
-  .cont-ini-img {
-    justify-content: center;
-    margin-top: 40px;
-  }
-
-  .imagen-seccion {
-    max-width: 100%;
-    height: auto;
-    max-height: 500px;
-  }
-
-  .botones-hero {
-    justify-content: center;
-  }
-
-  .dispositivos-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .dispositivo-central {
-    transform: scale(1);
-    margin: 20px 0;
-  }
-
-  .integraciones-grid,
-  .testimonios-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .estadisticas-container {
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .info-seguridad {
-    flex-direction: column;
-    text-align: center;
+  .seccion-jugadores .imagen-seccion,
+  .seccion-entrenadores .imagen-seccion {
+    max-width: 95%;
+    max-height: 300px;
   }
 }
