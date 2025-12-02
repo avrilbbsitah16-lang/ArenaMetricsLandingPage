@@ -19,7 +19,7 @@ document
     );
 
     if (!usuarioEncontrado) {
-      alert("❌ Email o contraseña incorrectos");
+      alert(" Email o contraseña incorrectos");
       return;
     }
 

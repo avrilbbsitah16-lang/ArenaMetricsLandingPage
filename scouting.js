@@ -293,24 +293,24 @@ function verPerfilDetallado(jugadorId) {
         <h2>${jugador.nombre}</h2>
         <p style="opacity: 0.7; font-size: 1.1rem;">@${jugador.nickname}</p>
         <p style="margin-top: 10px;">
-          <span style="color: #10b981;">🎮 ${jugador.juego}</span> | 
-          <span style="color: #fbbf24;">⚔️ ${jugador.rol}</span> | 
-          <span style="color: #818cf8;">📍 ${jugador.region}</span> | 
+          <span style="color: #10b981;"> ${jugador.juego}</span> | 
+          <span style="color: #fbbf24;"> ${jugador.rol}</span> | 
+          <span style="color: #818cf8;"> ${jugador.region}</span> | 
           <span style="opacity: 0.7;">🎂 ${jugador.edad} años</span>
         </p>
         <button class="btn-actualizar" style="margin-top: 15px;" onclick="abrirModalAnadirJugador('${
           jugador.id
         }')">
-          ➕ Añadir a Lista de Interés
+           Añadir a Lista de Interés
         </button>
       </div>
     </div>
 
     <div class="perfil-tabs-detalle">
-      <button class="perfil-tab-btn active" onclick="cambiarTabPerfil('estadisticas')">📊 Estadísticas</button>
-      <button class="perfil-tab-btn" onclick="cambiarTabPerfil('historial')">📜 Historial</button>
-      <button class="perfil-tab-btn" onclick="cambiarTabPerfil('logros')">🏆 Logros</button>
-      <button class="perfil-tab-btn" onclick="cambiarTabPerfil('videos')">🎥 Videos</button>
+      <button class="perfil-tab-btn active" onclick="cambiarTabPerfil('estadisticas')"> Estadísticas</button>
+      <button class="perfil-tab-btn" onclick="cambiarTabPerfil('historial')"> Historial</button>
+      <button class="perfil-tab-btn" onclick="cambiarTabPerfil('logros')"> Logros</button>
+      <button class="perfil-tab-btn" onclick="cambiarTabPerfil('videos')"> Videos</button>
     </div>
 
     <div id="perfil-tab-estadisticas" class="perfil-tab-content-detalle active">
@@ -368,7 +368,7 @@ function verPerfilDetallado(jugadorId) {
                 .map(
                   (logro) => `
             <div class="logro-card">
-              <div class="logro-icono">🏆</div>
+              <div class="logro-icono"></div>
               <h3>${logro.titulo}</h3>
               <p>${logro.descripcion}</p>
             </div>
@@ -629,16 +629,16 @@ function mostrarDetallesLista() {
       } | ${jugador.region}</p>
         
         <div class="lista-jugador-metricas-inline">
-          <span>📊 KDA: <strong>${jugador.kda}</strong></span>
-          <span>🎯 Win Rate: <strong>${jugador.winrate}%</strong></span>
-          <span>⚡ ${jugador.tiempoReaccion}ms</span>
+          <span> KDA: <strong>${jugador.kda}</strong></span>
+          <span> Win Rate: <strong>${jugador.winrate}%</strong></span>
+          <span> ${jugador.tiempoReaccion}ms</span>
         </div>
 
         ${
           jugador.notaEntrenador
             ? `
           <div class="nota-entrenador">
-            <div class="nota-entrenador-label">📝 Nota del Entrenador:</div>
+            <div class="nota-entrenador-label"> Nota del Entrenador:</div>
             <div>${jugador.notaEntrenador}</div>
           </div>
         `
@@ -648,10 +648,10 @@ function mostrarDetallesLista() {
 
       <div class="lista-jugador-actions">
         <button class="btn-editar-nota" onclick="editarNotaJugador(${index})">
-          📝 ${jugador.notaEntrenador ? "Editar" : "Añadir"} Nota
+           ${jugador.notaEntrenador ? "Editar" : "Añadir"} Nota
         </button>
         <button class="btn-quitar-lista" onclick="quitarJugadorDeLista(${index})">
-          🗑️ Quitar
+           Quitar
         </button>
       </div>
     </div>
@@ -960,7 +960,7 @@ function simularNuevoTalento() {
   };
 
   alert(
-    `🔔 NUEVA ALERTA DE TALENTO\n\n${nuevoJugador.nombre}\n${nuevoJugador.juego} - ${nuevoJugador.rol}\nKDA: ${nuevoJugador.kda} | Win Rate: ${nuevoJugador.winrate}%\n\n¡Revisa su perfil ahora!`
+    ` NUEVA ALERTA DE TALENTO\n\n${nuevoJugador.nombre}\n${nuevoJugador.juego} - ${nuevoJugador.rol}\nKDA: ${nuevoJugador.kda} | Win Rate: ${nuevoJugador.winrate}%\n\n¡Revisa su perfil ahora!`
   );
 }
 
@@ -977,7 +977,7 @@ function conectarPlataforma(plataforma) {
     )
   ) {
     alert(
-      `🔗 Conectando con ${plataformas[plataforma]}...\n\n(Funcionalidad de integración OAuth pendiente de implementación con APIs reales)`
+      ` Conectando con ${plataformas[plataforma]}...\n\n(Funcionalidad de integración OAuth pendiente de implementación con APIs reales)`
     );
 
     // Simular importación exitosa
