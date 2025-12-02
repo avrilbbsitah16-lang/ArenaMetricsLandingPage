@@ -37,3 +37,9 @@ function cerrarSesion() {
     window.location.reload();
   }
 }
+
+// Toggle Menu para móviles
+function toggleMenu() {
+  const menu = document.getElementById("menuHorizontal");
+  menu.classList.toggle("active");
+}

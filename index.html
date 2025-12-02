@@ -1,416 +1,383 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ArenaMetrics - Plataforma de Análisis para eSports</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- NAVBAR -->
-    <header class="top-header">
-      <div class="logo-container">
-        <img src="img/logo.png" alt="Logo" class="logo" />
-        <span class="logo-text">ArenaMetrics</span>
-      </div>
 
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArenaMetrics - Plataforma de Análisis para eSports</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-      <nav>
-        <ul class="menu-horizontal" id="menuHorizontal">
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#jugadores">Jugadores</a></li>
-          <li><a href="#entrenadores">Entrenadores</a></li>
-          <li><a href="#caracteristicas">Características</a></li>
-        </ul>
-      </nav>
+<body>
+  <!-- NAVBAR -->
+  <header class="top-header">
+    <div class="logo-container">
+      <img src="img/logo.png" alt="Logo" class="logo" />
+      <span class="logo-text">ArenaMetrics</span>
+    </div>
 
-      <div class="auth-buttons">
-        <button class="btn-auth" onclick="window.location.href='login.html'">
-          Iniciar Sesión
-        </button>
-        <button class="btn-auth" onclick="window.location.href='registro.html'">
-          Registro
-        </button>
-      </div>
-    </header>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
-    <!-- ========== MOCKUP 1: HERO SECTION ========== -->
-    <section id="inicio" class="seccion-inicio">
-      <div class="circulo-decorativo circulo-1"></div>
-      <div class="circulo-decorativo circulo-2"></div>
+    <nav>
+      <ul class="menu-horizontal" id="menuHorizontal">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#jugadores">Jugadores</a></li>
+        <li><a href="#entrenadores">Entrenadores</a></li>
+        <li><a href="#caracteristicas">Características</a></li>
+      </ul>
+    </nav>
 
-      <div class="cont-gral-inicio">
-        <div class="cont-ini-texto">
-          <h2>DESCUBRE LA PLATAFORMA DEFINITIVA DE ANÁLISIS PARA ESPORTS</h2>
+    <div class="auth-buttons">
+      <button class="btn-auth" onclick="window.location.href='login.html'">
+        Iniciar Sesión
+      </button>
+      <button class="btn-auth" onclick="window.location.href='registro.html'">
+        Registro
+      </button>
+    </div>
+  </header>
 
-          <p>
-            Gestiona tu carrera como jugador profesional o analiza el
-            rendimiento de tu equipo con datos en tiempo real
-          </p>
+  <!-- ========== MOCKUP 1: HERO SECTION ========== -->
+  <section id="inicio" class="seccion-inicio">
+    <div class="circulo-decorativo circulo-1"></div>
+    <div class="circulo-decorativo circulo-2"></div>
 
-          <!-- Logos de juegos -->
-          <div class="logos-juegos">
-            <div class="logo-juego-item">
-              <img src="img/lol-logo.png" alt="League of Legends" />
-            </div>
-            <div class="logo-juego-item">
-              <img src="img/valorant-logo.png" alt="Valorant" />
-            </div>
-            <div class="logo-juego-item">
-              <img src="img/cs-logo.png" alt="Counter-Strike" />
-            </div>
-            <div class="logo-juego-item">
-              <img src="img/dota-logo.png" alt="Dota 2" />
-            </div>
-          </div>
+    <div class="cont-gral-inicio">
+      <div class="cont-ini-texto">
+        <h2>DESCUBRE LA PLATAFORMA DEFINITIVA DE ANÁLISIS PARA ESPORTS</h2>
 
-          <!-- Botones CTA centrados -->
-          <div class="botones-hero">
-            <button
-              class="btn-cta btn-jugador"
-              onclick="window.location.href='registro.html'"
-            >
-              <span class="btn-titulo">Soy Jugador</span>
-              <span class="btn-subtitulo">Crear perfil </span>
-            </button>
-
-            <button
-              class="btn-cta btn-entrenador"
-              onclick="window.location.href='registro.html'"
-            >
-              <span class="btn-titulo">Soy Entrenador</span>
-              <span class="btn-subtitulo">Ver dashboards </span>
-            </button>
-          </div>
-        </div>
-
-        <div class="cont-ini-img">
-          <img
-            src="img/personaje-hero.png"
-            alt="Personaje eSports"
-            class="imagen-seccion"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== MOCKUP 2: PARA JUGADORES ========== -->
-    <section id="jugadores" class="seccion-inicio seccion-jugadores">
-      <div class="circulo-decorativo circulo-3"></div>
-      <div class="circulo-decorativo circulo-4"></div>
-
-      <div class="cont-gral-inicio">
-        <div class="cont-ini-img">
-          <img
-            src="img/tablets-mockup.png"
-            alt="Tablets Mockup"
-            class="imagen-seccion"
-          />
-        </div>
-
-        <div class="cont-ini-texto">
-          <h2>Para jugadores profesionales</h2>
-          <h3>Construye tu carrera en eSports</h3>
-
-          <ul class="lista-caracteristicas">
-            <li>• Registro Rápido y Completo</li>
-            <li>• Sincronización Automática</li>
-            <li>• Control Total de Privacidad</li>
-            <li>• Historial Profesional</li>
-            <li>• Dashboard de Métricas</li>
-            <li>• Logros y Certificaciones</li>
-            <li>• Notificaciones en Tiempo Real</li>
-            <li>• Perfil Verificado</li>
-            <li>• Actualización Instantánea</li>
-          </ul>
-
-          <p class="texto-destacado">
-            "Más de 1,500 jugadores profesionales ya confían en nuestra
-            plataforma" 
-          </p>
-
-          <button
-            class="btn-cta-secundario"
-            onclick="window.location.href='registro.html'"
-          >
-            Crear Perfil →
-          </button>
-          <br /><br />
-          <a href="#caracteristicas" class="link-detalle"
-            >Ver a detalle las características</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== MOCKUP 3: PARA ENTRENADORES ========== -->
-    <section id="entrenadores" class="seccion-inicio seccion-entrenadores">
-      <div class="circulo-decorativo circulo-5"></div>
-      <div class="circulo-decorativo circulo-6"></div>
-
-      <div class="cont-gral-inicio">
-        <div class="cont-ini-texto">
-          <h2>Para entrenadores profesionales</h2>
-          <h3>Toma tus decisiones basadas en datos reales</h3>
-
-          <ul class="lista-caracteristicas">
-            <li>• Dashboard Centralizado</li>
-            <li>• Filtros Inteligentes</li>
-            <li>• Evolución Temporal</li>
-            <li>• Comparación Rápida</li>
-            <li>• Alertas Inteligentes</li>
-            <li>• Reportes Profesionales</li>
-            <li>• Organización en Equipos</li>
-            <li>• Integración con Calendario</li>
-            <li>• Notas de Entrenador</li>
-          </ul>
-
-          <p class="texto-destacado">
-            "50+ equipos profesionales usan nuestro dashboard para análisis
-            estratégico" 
-          </p>
-
-          <button
-            class="btn-cta-secundario"
-            onclick="window.location.href='registro.html'"
-          >
-            Solicitar demo →
-          </button>
-          <br /><br />
-          <a href="#caracteristicas" class="link-detalle"
-            >Ver a detalle las características</a
-          >
-        </div>
-
-        <div class="cont-ini-img">
-          <img
-            src="img/dashboard-mockup.png"
-            alt="Dashboard"
-            class="imagen-seccion"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== MOCKUP 4: VISUALIZA LA PLATAFORMA ========== -->
-    <section id="caracteristicas" class="seccion-inicio seccion-visualiza">
-      <div class="circulo-decorativo circulo-7"></div>
-      <div class="circulo-decorativo circulo-8"></div>
-
-      <h2 class="titulo-centrado">Visualiza la plataforma en acción</h2>
-
-      <div class="dispositivos-container">
-        <div class="dispositivo-card">
-          <img src="img/iphone-mockup.png" alt="iPhone" class="mockup-img" />
-          <p class="dispositivo-label">iPhone</p>
-        </div>
-
-        <div class="dispositivo-card dispositivo-central">
-          <img src="img/android-mockup.png" alt="Android" class="mockup-img" />
-          <p class="dispositivo-label">Android</p>
-        </div>
-
-        <div class="dispositivo-card">
-          <img src="img/web-mockup.png" alt="Web" class="mockup-img" />
-          <p class="dispositivo-label">Web</p>
-        </div>
-      </div>
-
-      <div class="texto-interfaz">
-        <h3>Interfaz Intuitiva y Profesional</h3>
         <p>
-          ✓ Diseño optimizado para iOS y Android ✓ Gráficos interactivos con
-          gestos táctiles<br />
-          ✓ Navegación fluida y responsiva ✓ Modo oscuro/claro disponible
+          Gestiona tu carrera como jugador profesional o analiza el
+          rendimiento de tu equipo con datos en tiempo real
         </p>
-      </div>
 
-      <p class="texto-destacado texto-centrado">
-        "La mejor experiencia móvil para análisis de eSports"
-      </p>
-    </section>
-
-    <!-- ========== MOCKUP 5: INTEGRACIONES ========== -->
-    <section class="seccion-inicio seccion-integraciones">
-      <div class="circulo-decorativo circulo-9"></div>
-      <div class="circulo-decorativo circulo-10"></div>
-
-      <h2 class="titulo-centrado">Integraciones oficiales</h2>
-      <p class="subtitulo-centrado">Conectados con las Plataformas Líderes</p>
-
-      <div class="integraciones-grid">
-        <!-- Riot Games -->
-        <div class="integracion-card">
-          <img
-            src="img/riot-logo.png"
-            alt="Riot Games"
-            class="logo-integracion"
-          />
-          <div class="juegos-lista">
-            <span>LEAGUE OF LEGENDS</span>
-            <span>VALORANT</span>
+        <!-- Logos de juegos -->
+        <div class="logos-juegos">
+          <div class="logo-juego-item">
+            <img src="img/lol-logo.png" alt="League of Legends" />
           </div>
-          <p class="badge-oficial">✓ API Oficial</p>
-        </div>
-
-        <!-- Steam -->
-        <div class="integracion-card">
-          <img src="img/steam-logo.png" alt="Steam" class="logo-integracion" />
-          <div class="juegos-lista">
-            <span>DOTA 2</span>
-            <span>CS</span>
+          <div class="logo-juego-item">
+            <img src="img/valorant-logo.png" alt="Valorant" />
           </div>
-          <p class="badge-oficial">✓ API Oficial</p>
+          <div class="logo-juego-item">
+            <img src="img/cs-logo.png" alt="Counter-Strike" />
+          </div>
+          <div class="logo-juego-item">
+            <img src="img/dota-logo.png" alt="Dota 2" />
+          </div>
+        </div>
+
+        <!-- Botones CTA centrados -->
+        <div class="botones-hero">
+          <button class="btn-cta btn-jugador" onclick="window.location.href='registro.html'">
+            <span class="btn-titulo">Soy Jugador</span>
+            <span class="btn-subtitulo">Crear perfil </span>
+          </button>
+
+          <button class="btn-cta btn-entrenador" onclick="window.location.href='registro.html'">
+            <span class="btn-titulo">Soy Entrenador</span>
+            <span class="btn-subtitulo">Ver dashboards </span>
+          </button>
         </div>
       </div>
 
-      <div class="info-seguridad">
-        <div class="icono-escudo">🛡️✓</div>
-        <div class="texto-seguridad">
-          <p>✓ Máxima seguridad en la autenticación</p>
-          <p>✓ Tus credenciales NUNCA se almacenan en nuestros servidores</p>
-          <p>✓ Permisos granulares y revocables</p>
-          <p>
-            ✓ Cumplimiento con políticas de privacidad de Riot Games y Valve
-          </p>
-          <p>✓ Sincronización fluida con OAuth 2.0</p>
-        </div>
+      <div class="cont-ini-img">
+        <img src="img/champion.png" alt="Personaje eSports" class="imagen-seccion" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MOCKUP 2: PARA JUGADORES ========== -->
+  <section id="jugadores" class="seccion-inicio seccion-jugadores">
+    <div class="circulo-decorativo circulo-3"></div>
+    <div class="circulo-decorativo circulo-4"></div>
+
+    <div class="cont-gral-inicio">
+      <div class="cont-ini-img">
+        <img src="img/tablets-mockups.jpg" alt="Tablets Mockup" class="imagen-seccion" />
       </div>
 
-      <p class="texto-info">
-        Datos confiables desde la Fuente Oficial. Importamos tus estadísticas
-        directamente desde las APIs verificadas de cada juego, garantizando
-        precisión y legitimidad en cada métrica
-      </p>
-    </section>
+      <div class="cont-ini-texto">
+        <h2>Para jugadores profesionales</h2>
+        <h3>Construye tu carrera en eSports</h3>
 
-    <!-- ========== MOCKUP 6: TESTIMONIOS ========== -->
-    <section class="seccion-inicio seccion-testimonios">
-      <div class="circulo-decorativo circulo-11"></div>
-      <div class="circulo-decorativo circulo-12"></div>
-
-      <h2 class="titulo-centrado">Lo que dicen nuestros usuarios</h2>
-
-      <p class="equipos-lista">
-        Cloud9 | Team Liquid | KRÜ Esports | LOUD | Fnatic | G2 Esports | NRG |
-        Sentinels | 100 Thieves
-      </p>
-
-      <div class="testimonios-grid">
-        <div class="testimonio-card">
-          <img src="img/user1.jpg" alt="Usuario 1" class="foto-usuario" />
-          <p class="testimonio-texto">
-            "Gracias a esta plataforma conseguí fichar con Cloud9. Mi perfil
-            verificado hizo la diferencia"
-          </p>
-          <p class="autor">— Carlos M, Mid Laner, Cloud9</p>
-          <div class="estrellas">⭐⭐⭐⭐⭐</div>
-        </div>
-
-        <div class="testimonio-card">
-          <img src="img/user2.jpg" alt="Usuario 2" class="foto-usuario" />
-          <p class="testimonio-texto">
-            "El dashboard me permite tomar decisiones estratégicas en tiempo
-            real. Las comparaciones y benchmarking son invaluables"
-          </p>
-          <p class="autor">— Ana Torres, Head Coach, Team Liquid</p>
-          <div class="estrellas">⭐⭐⭐⭐⭐</div>
-        </div>
-
-        <div class="testimonio-card">
-          <img src="img/user3.jpg" alt="Usuario 3" class="foto-usuario" />
-          <p class="testimonio-texto">
-            "Descubrimos 3 jugadores increíbles usando el módulo de scouting.
-            Los filtros y métricas objetivas son espectaculares"
-          </p>
-          <p class="autor">— Luis Ramos, Talent Scout, KRÜ Esports</p>
-          <div class="estrellas">⭐⭐⭐⭐⭐</div>
-        </div>
-      </div>
-
-      <div class="estadisticas-container">
-        <div class="estadistica">
-          <h3>1,500 +</h3>
-          <p>Jugadores<br />Profesionales</p>
-        </div>
-        <div class="estadistica">
-          <h3>50 +</h3>
-          <p>Equipos Pro</p>
-        </div>
-        <div class="estadistica">
-          <h3>100,000 +</h3>
-          <p>Partidas<br />Analizadas</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== MOCKUP 7: EMAIL ========== -->
-    <section class="seccion-inicio seccion-email">
-      <div class="circulo-decorativo circulo-13"></div>
-
-      <div class="email-box">
-        <h2>Déjanos tu email para contacto:</h2>
-
-        <ul class="lista-beneficios">
-          <li>✓ 10,000+ personas ya registradas</li>
-          <li>✓ Acceso prioritario a nuevas funcionalidades</li>
-          <li>✓ Sin spam, solo actualizaciones importantes</li>
+        <ul class="lista-caracteristicas">
+          <li>• Registro Rápido y Completo</li>
+          <li>• Sincronización Automática</li>
+          <li>• Control Total de Privacidad</li>
+          <li>• Historial Profesional</li>
+          <li>• Dashboard de Métricas</li>
+          <li>• Logros y Certificaciones</li>
+          <li>• Notificaciones en Tiempo Real</li>
+          <li>• Perfil Verificado</li>
+          <li>• Actualización Instantánea</li>
         </ul>
 
-        <form class="form-email" onsubmit="enviarEmail(event)">
-          <input
-            type="email"
-            id="emailContacto"
-            placeholder="Para las mejores actualizaciones ingresa tu email"
-            required
-          />
-          <button type="submit" class="btn-enviar">Enviar</button>
-        </form>
+        <p class="texto-destacado">
+          "Más de 1,500 jugadores profesionales ya confían en nuestra
+          plataforma"
+        </p>
+
+        <button class="btn-cta-secundario" onclick="window.location.href='registro.html'">
+          Crear Perfil →
+        </button>
+        <br /><br />
+        <a href="#caracteristicas" class="link-detalle">Ver a detalle las características</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ========== FOOTER ========== -->
-    <footer class="footer">
-      <div class="footer-contenido">
-        <div class="footer-col">
-          <img src="img/logo.png" alt="Logo" class="logo-footer" />
-          <p>La plataforma definitiva para análisis de eSports</p>
-          <div class="redes-sociales">
-            <a href="#" aria-label="Facebook"></a>
-            <a href="#" aria-label="Twitter"></a>
-            <a href="#" aria-label="Instagram"></a>
-            <a href="#" aria-label="Discord"></a>
-          </div>
-        </div>
+  <!-- ========== MOCKUP 3: PARA ENTRENADORES ========== -->
+  <section id="entrenadores" class="seccion-inicio seccion-entrenadores">
+    <div class="circulo-decorativo circulo-5"></div>
+    <div class="circulo-decorativo circulo-6"></div>
 
-        <div class="footer-col">
-          <h4>Recursos</h4>
-          <ul>
-            <li><a href="#">Docs</a></li>
-            <li><a href="#">APIs</a></li>
-            <li><a href="#">Guías</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Status</a></li>
-            <li><a href="#">FAQ</a></li>
-          </ul>
-        </div>
+    <div class="cont-gral-inicio">
+      <div class="cont-ini-texto">
+        <h2>Para entrenadores profesionales</h2>
+        <h3>Toma tus decisiones basadas en datos reales</h3>
 
-        <div class="footer-col">
-          <h4>Ayuda</h4>
-          <ul>
-            <li><a href="#">Términos y condiciones</a></li>
-            <li><a href="#">Privacidad</a></li>
-            <li><a href="#">Cookies</a></li>
-          </ul>
-        </div>
+        <ul class="lista-caracteristicas">
+          <li>• Dashboard Centralizado</li>
+          <li>• Filtros Inteligentes</li>
+          <li>• Evolución Temporal</li>
+          <li>• Comparación Rápida</li>
+          <li>• Alertas Inteligentes</li>
+          <li>• Reportes Profesionales</li>
+          <li>• Organización en Equipos</li>
+          <li>• Integración con Calendario</li>
+          <li>• Notas de Entrenador</li>
+        </ul>
+
+        <p class="texto-destacado">
+          "50+ equipos profesionales usan nuestro dashboard para análisis
+          estratégico"
+        </p>
+
+        <button class="btn-cta-secundario" onclick="window.location.href='registro.html'">
+          Solicitar demo →
+        </button>
+        <br /><br />
+        <a href="#caracteristicas" class="link-detalle">Ver a detalle las características</a>
       </div>
 
-      <p class="copyright">
-        © 2025 eSports Analytics Platform. Todos los derechos reservados.
+      <div class="cont-ini-img">
+        <img src="img/dashboard-mockup.png" alt="Dashboard" class="imagen-seccion" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MOCKUP 4: VISUALIZA LA PLATAFORMA ========== -->
+  <section id="caracteristicas" class="seccion-inicio seccion-visualiza">
+    <div class="circulo-decorativo circulo-7"></div>
+    <div class="circulo-decorativo circulo-8"></div>
+
+    <h2 class="titulo-centrado">Visualiza la plataforma en acción</h2>
+
+    <div class="dispositivos-container">
+      <div class="dispositivo-card">
+        <img src="img/iphone-mockup.jpg" alt="iPhone" class="mockup-img" />
+        <p class="dispositivo-label">iPhone</p>
+      </div>
+
+      <div class="dispositivo-card dispositivo-central">
+        <img src="img/android-mockup.jpg" alt="Android" class="mockup-img" />
+        <p class="dispositivo-label">Android</p>
+      </div>
+
+      <div class="dispositivo-card">
+        <img src="img/web-mockup.jpg" alt="Web" class="mockup-img" />
+        <p class="dispositivo-label">Web</p>
+      </div>
+    </div>
+
+    <div class="texto-interfaz">
+      <h3>Interfaz Intuitiva y Profesional</h3>
+      <p>
+        ✓ Diseño optimizado para iOS y Android ✓ Gráficos interactivos con
+        gestos táctiles<br />
+        ✓ Navegación fluida y responsiva ✓ Modo oscuro/claro disponible
       </p>
-    </footer>
+    </div>
 
-    <script src="script.js"></script>
-  </body>
+    <p class="texto-destacado texto-centrado">
+      "La mejor experiencia móvil para análisis de eSports"
+    </p>
+  </section>
+
+  <!-- ========== MOCKUP 5: INTEGRACIONES ========== -->
+  <section class="seccion-inicio seccion-integraciones">
+    <div class="circulo-decorativo circulo-9"></div>
+    <div class="circulo-decorativo circulo-10"></div>
+
+    <h2 class="titulo-centrado">Integraciones oficiales</h2>
+    <p class="subtitulo-centrado">Conectados con las Plataformas Líderes</p>
+
+    <div class="integraciones-grid">
+      <!-- Riot Games -->
+      <div class="integracion-card">
+        <img src="img/riot-logo.png" alt="Riot Games" class="logo-integracion" />
+        <div class="juegos-lista">
+          <span>LEAGUE OF LEGENDS</span>
+          <span>VALORANT</span>
+        </div>
+        <p class="badge-oficial">✓ API Oficial</p>
+      </div>
+
+      <!-- Steam -->
+      <div class="integracion-card">
+        <img src="img/steam-logo.png" alt="Steam" class="logo-integracion" />
+        <div class="juegos-lista">
+          <span>DOTA 2</span>
+          <span>CS</span>
+        </div>
+        <p class="badge-oficial">✓ API Oficial</p>
+      </div>
+    </div>
+
+    <div class="info-seguridad">
+      <div class="icono-escudo">🛡️✓</div>
+      <div class="texto-seguridad">
+        <p>✓ Máxima seguridad en la autenticación</p>
+        <p>✓ Tus credenciales NUNCA se almacenan en nuestros servidores</p>
+        <p>✓ Permisos granulares y revocables</p>
+        <p>
+          ✓ Cumplimiento con políticas de privacidad de Riot Games y Valve
+        </p>
+        <p>✓ Sincronización fluida con OAuth 2.0</p>
+      </div>
+    </div>
+
+    <p class="texto-info">
+      Datos confiables desde la Fuente Oficial. Importamos tus estadísticas
+      directamente desde las APIs verificadas de cada juego, garantizando
+      precisión y legitimidad en cada métrica
+    </p>
+  </section>
+
+  <!-- ========== MOCKUP 6: TESTIMONIOS ========== -->
+  <section class="seccion-inicio seccion-testimonios">
+    <div class="circulo-decorativo circulo-11"></div>
+    <div class="circulo-decorativo circulo-12"></div>
+
+    <h2 class="titulo-centrado">Lo que dicen nuestros usuarios</h2>
+
+    <p class="equipos-lista">
+      Cloud9 | Team Liquid | KRÜ Esports | LOUD | Fnatic | G2 Esports | NRG |
+      Sentinels | 100 Thieves
+    </p>
+
+    <div class="testimonios-grid">
+      <div class="testimonio-card">
+        <img src="img/user-1.jpg" alt="Usuario 1" class="foto-usuario" />
+        <p class="testimonio-texto">
+          "Gracias a esta plataforma conseguí fichar con Cloud9. Mi perfil
+          verificado hizo la diferencia"
+        </p>
+        <p class="autor">— Carlos M, Mid Laner, Cloud9</p>
+        <div class="estrellas">⭐⭐⭐⭐⭐</div>
+      </div>
+
+      <div class="testimonio-card">
+        <img src="img/user-2.jpg" alt="Usuario 2" class="foto-usuario" />
+        <p class="testimonio-texto">
+          "El dashboard me permite tomar decisiones estratégicas en tiempo
+          real. Las comparaciones y benchmarking son invaluables"
+        </p>
+        <p class="autor">— Ana Torres, Head Coach, Team Liquid</p>
+        <div class="estrellas">⭐⭐⭐⭐⭐</div>
+      </div>
+
+      <div class="testimonio-card">
+        <img src="img/user-3.jpg" alt="Usuario 3" class="foto-usuario" />
+        <p class="testimonio-texto">
+          "Descubrimos 3 jugadores increíbles usando el módulo de scouting.
+          Los filtros y métricas objetivas son espectaculares"
+        </p>
+        <p class="autor">— Luis Ramos, Talent Scout, KRÜ Esports</p>
+        <div class="estrellas">⭐⭐⭐⭐⭐</div>
+      </div>
+    </div>
+
+    <div class="estadisticas-container">
+      <div class="estadistica">
+        <h3>1,500 +</h3>
+        <p>Jugadores<br />Profesionales</p>
+      </div>
+      <div class="estadistica">
+        <h3>50 +</h3>
+        <p>Equipos Pro</p>
+      </div>
+      <div class="estadistica">
+        <h3>100,000 +</h3>
+        <p>Partidas<br />Analizadas</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MOCKUP 7: EMAIL ========== -->
+  <section class="seccion-inicio seccion-email">
+    <div class="circulo-decorativo circulo-13"></div>
+
+    <div class="email-box">
+      <h2>Déjanos tu email para contacto:</h2>
+
+      <ul class="lista-beneficios">
+        <li>✓ 10,000+ personas ya registradas</li>
+        <li>✓ Acceso prioritario a nuevas funcionalidades</li>
+        <li>✓ Sin spam, solo actualizaciones importantes</li>
+      </ul>
+
+      <form class="form-email" onsubmit="enviarEmail(event)">
+        <input type="email" id="emailContacto" placeholder="Para las mejores actualizaciones ingresa tu email"
+          required />
+        <button type="submit" class="btn-enviar">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-contenido">
+      <div class="footer-col">
+        <img src="img/logo.png" alt="Logo" class="logo-footer" />
+        <p>La plataforma definitiva para análisis de eSports</p>
+        <div class="redes-sociales">
+          <a href="#" aria-label="Facebook"></a>
+          <a href="#" aria-label="Twitter"></a>
+          <a href="#" aria-label="Instagram"></a>
+          <a href="#" aria-label="Discord"></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="#">Docs</a></li>
+          <li><a href="#">APIs</a></li>
+          <li><a href="#">Guías</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Status</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Términos y condiciones</a></li>
+          <li><a href="#">Privacidad</a></li>
+          <li><a href="#">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="copyright">
+      © 2025 eSports Analytics Platform. Todos los derechos reservados.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
