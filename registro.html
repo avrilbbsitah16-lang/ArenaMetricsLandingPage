@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro - ArenaMetrics</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <section class="login-container">
+      <div class="login-box registro-box">
+        <div class="logo-login">
+          <img src="img/logo.png" alt="ArenaMetrics Logo" />
+          <h1>ArenaMetrics</h1>
+        </div>
+
+        <h2>Crear Perfil de Jugador</h2>
+        <p class="subtitle">Comienza tu carrera profesional en eSports</p>
+
+        <!-- Barra de progreso (US001) -->
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressBar"></div>
+        </div>
+        <p class="progress-text">
+          Completado: <span id="progressPercent">0%</span>
+        </p>
+
+        <form id="registroForm">
+          <!-- US001: Información Básica -->
+          <div class="form-section active" id="seccion1">
+            <h3>📝 Información Básica</h3>
+
+            <div class="input-group">
+              <label for="nombre">Nombre Completo *</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Tu nombre completo"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="nickname">Nickname Principal *</label>
+              <input
+                type="text"
+                id="nickname"
+                name="nickname"
+                placeholder="Tu nickname en competitivo"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="email-registro">Email *</label>
+              <input
+                type="email"
+                id="email-registro"
+                name="email-registro"
+                placeholder="tu-email@ejemplo.com"
+                required
+              />
+              <span class="email-validation" id="emailValidation"></span>
+            </div>
+
+            <div class="input-group">
+              <label for="password-registro">Contraseña *</label>
+              <input
+                type="password"
+                id="password-registro"
+                name="password-registro"
+                placeholder="Mínimo 8 caracteres"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="password-confirm">Confirmar Contraseña *</label>
+              <input
+                type="password"
+                id="password-confirm"
+                name="password-confirm"
+                placeholder="Repite tu contraseña"
+                required
+              />
+            </div>
+
+            <button
+              type="button"
+              class="btn-continuar"
+              onclick="siguientePaso(2)"
+            >
+              Guardar y Continuar →
+            </button>
+          </div>
+
+          <!-- US001 & US002: Selección de Juegos -->
+          <div class="form-section" id="seccion2">
+            <h3>🎮 Juegos Competitivos</h3>
+            <p class="section-description">
+              Selecciona uno o más juegos que practicas profesionalmente
+            </p>
+
+            <div class="juegos-grid">
+              <label class="juego-checkbox">
+                <input type="checkbox" name="juego" value="League of Legends" />
+                <div class="juego-card">
+                  <img src="img/lol-logo.png" alt="League of Legends" />
+                  <span>League of Legends</span>
+                </div>
+              </label>
+
+              <label class="juego-checkbox">
+                <input type="checkbox" name="juego" value="Valorant" />
+                <div class="juego-card">
+                  <img src="img/valorant-logo.png" alt="Valorant" />
+                  <span>Valorant</span>
+                </div>
+              </label>
+
+              <label class="juego-checkbox">
+                <input type="checkbox" name="juego" value="Dota 2" />
+                <div class="juego-card">
+                  <img src="img/dota-logo.png" alt="Dota 2" />
+                  <span>Dota 2</span>
+                </div>
+              </label>
+
+              <label class="juego-checkbox">
+                <input type="checkbox" name="juego" value="CS2" />
+                <div class="juego-card">
+                  <img src="img/cs-logo.png" alt="CS2" />
+                  <span>CS2</span>
+                </div>
+              </label>
+            </div>
+
+            <div class="form-buttons">
+              <button type="button" class="btn-atras" onclick="anteriorPaso(1)">
+                ← Atrás
+              </button>
+              <button
+                type="button"
+                class="btn-continuar"
+                onclick="siguientePaso(3)"
+              >
+                Guardar y Continuar →
+              </button>
+            </div>
+          </div>
+
+          <!-- US003: Configuración de Privacidad -->
+          <div class="form-section" id="seccion3">
+            <h3>🔒 Configuración de Privacidad</h3>
+            <p class="section-description">
+              Define quién puede ver tu información
+            </p>
+
+            <div class="privacidad-item">
+              <label>Estadísticas de Juego:</label>
+              <select name="priv-estadisticas" required>
+                <option value="publico">Público</option>
+                <option value="entrenadores">Solo Entrenadores</option>
+                <option value="privado">Privado</option>
+              </select>
+            </div>
+
+            <div class="privacidad-item">
+              <label>Historial de Equipos:</label>
+              <select name="priv-historial" required>
+                <option value="publico">Público</option>
+                <option value="entrenadores">Solo Entrenadores</option>
+                <option value="privado">Privado</option>
+              </select>
+            </div>
+
+            <div class="privacidad-item">
+              <label>Datos de Contacto:</label>
+              <select name="priv-contacto" required>
+                <option value="publico">Público</option>
+                <option value="entrenadores">Solo Entrenadores</option>
+                <option value="privado">Privado</option>
+              </select>
+            </div>
+
+            <div class="privacidad-item">
+              <label>Métricas Avanzadas:</label>
+              <select name="priv-metricas" required>
+                <option value="publico">Público</option>
+                <option value="entrenadores">Solo Entrenadores</option>
+                <option value="privado">Privado</option>
+              </select>
+            </div>
+
+            <div class="form-buttons">
+              <button type="button" class="btn-atras" onclick="anteriorPaso(2)">
+                ← Atrás
+              </button>
+              <button
+                type="button"
+                class="btn-continuar"
+                onclick="siguientePaso(4)"
+              >
+                Guardar y Continuar →
+              </button>
+            </div>
+          </div>
+
+          <!-- US008: Notificaciones -->
+          <div class="form-section" id="seccion4">
+            <h3>🔔 Preferencias de Notificaciones</h3>
+            <p class="section-description">
+              Configura cómo quieres recibir notificaciones
+            </p>
+
+            <div class="notificacion-item">
+              <label class="checkbox-label">
+                <input type="checkbox" name="notif-email" checked />
+                <span>Notificaciones por Email</span>
+              </label>
+            </div>
+
+            <div class="notificacion-item">
+              <label class="checkbox-label">
+                <input type="checkbox" name="notif-push" checked />
+                <span>Notificaciones Push</span>
+              </label>
+            </div>
+
+            <div class="notificacion-item">
+              <label class="checkbox-label">
+                <input type="checkbox" name="notif-perfil" checked />
+                <span>Notificar cuando entrenadores vean mi perfil</span>
+              </label>
+            </div>
+
+            <div class="notificacion-item">
+              <label class="checkbox-label">
+                <input type="checkbox" name="notif-mensajes" checked />
+                <span>Notificar nuevos mensajes de organizaciones</span>
+              </label>
+            </div>
+
+            <div class="form-buttons">
+              <button type="button" class="btn-atras" onclick="anteriorPaso(3)">
+                ← Atrás
+              </button>
+              <button
+                type="submit"
+                class="login-button"
+                id="btnCrearPerfil"
+                disabled
+              >
+                ✓ Crear Perfil
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="login-footer">
+          <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+          <p><a href="index.html">← Volver al inicio</a></p>
+        </div>
+      </div>
+    </section>
+
+    <script src="registro.js"></script>
+  </body>
+</html>

@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Perfil - ArenaMetrics</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <!-- NAVBAR (igual que landing) -->
+    <header class="top-header">
+      <div class="logo-container">
+        <img src="img/logo.png" alt="Logo" class="logo" />
+        <span class="logo-text">ArenaMetrics</span>
+      </div>
+
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+      <nav>
+        <ul class="menu-horizontal" id="menuHorizontal">
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="#perfil">Mi Perfil</a></li>
+          <li><a href="#estadisticas">Estadísticas</a></li>
+          <li><a href="#historial">Historial</a></li>
+          <li><a href="#logros">Logros</a></li>
+        </ul>
+      </nav>
+
+      <div class="auth-buttons">
+        <button class="btn-auth" onclick="verPerfil()">
+          <span id="nombreUsuario">Mi Perfil</span> 👤
+        </button>
+        <button class="btn-auth" onclick="cerrarSesion()">Cerrar Sesión</button>
+      </div>
+    </header>
+
+    <!-- ========== HERO DASHBOARD ========== -->
+    <section class="dashboard-hero">
+      <div class="circulo-decorativo circulo-1"></div>
+      <div class="welcome-container">
+        <h1>Bienvenido, <span id="nombreCompleto">Jugador</span></h1>
+        <p>ID de Perfil: <span id="idUsuario">user_xxxxx</span></p>
+        <div class="verificacion-badge">
+          <span id="badgeVerificacion">⏳ Verificación Pendiente</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TABS NAVIGATION ========== -->
+    <section class="tabs-container">
+      <div class="tabs">
+        <button class="tab-btn active" onclick="cambiarTab('perfil')">📝 Mi Perfil</button>
+        <button class="tab-btn" onclick="cambiarTab('sincronizar')">🔄 Sincronizar Juegos</button>
+        <button class="tab-btn" onclick="cambiarTab('historial')">📜 Historial</button>
+        <button class="tab-btn" onclick="cambiarTab('metricas')">📊 Métricas</button>
+        <button class="tab-btn" onclick="cambiarTab('logros')">🏆 Logros</button>
+        <button class="tab-btn" onclick="cambiarTab('notificaciones')">🔔 Notificaciones</button>
+        <button class="tab-btn" onclick="cambiarTab('exportar')">💾 Exportar</button>
+        <button class="tab-btn" onclick="cambiarTab('scouting')">🔍 Scouting</button>
+      </div>
+    </section>
+
+    <!-- ========== US005: ACTUALIZACIÓN DE DATOS PERSONALES ========== -->
+    <section id="tab-perfil" class="tab-content active">
+      <div class="dashboard-section">
+        <h2>📝 Actualizar Información Personal</h2>
+        <p class="section-desc">US005: Edita y actualiza tu información personal</p>
+
+        <form id="formActualizarPerfil" class="dashboard-form">
+          <div class="form-row">
+            <div class="input-group">
+              <label>Nombre Completo</label>
+              <input type="text" id="edit-nombre" required />
+            </div>
+
+            <div class="input-group">
+              <label>Nickname Principal</label>
+              <input type="text" id="edit-nickname" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label>Email</label>
+              <input type="email" id="edit-email" required />
+              <span class="validation-msg" id="emailValidationMsg"></span>
+            </div>
+
+            <div class="input-group">
+              <label>Teléfono</label>
+              <input type="tel" id="edit-telefono" placeholder="+51 999 999 999" />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Biografía</label>
+            <textarea id="edit-biografia" rows="4" placeholder="Cuéntanos sobre tu trayectoria en eSports..."></textarea>
+          </div>
+
+          <div class="input-group">
+            <label>Especialidades por Juego</label>
+            <div id="especialidades-container"></div>
+          </div>
+
+          <div class="input-group">
+            <label>Disponibilidad</label>
+            <select id="edit-disponibilidad">
+              <option value="tiempo-completo">Tiempo Completo</option>
+              <option value="medio-tiempo">Medio Tiempo</option>
+              <option value="freelance">Freelance</option>
+              <option value="no-disponible">No Disponible</option>
+            </select>
+          </div>
+
+          <div class="form-buttons">
+            <button type="button" class="btn-cancelar" onclick="cancelarCambios()">
+              Cancelar Cambios
+            </button>
+            <button type="submit" class="btn-actualizar" id="btnActualizar" disabled>
+              Actualizar Información
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ========== US002: IMPORTACIÓN AUTOMÁTICA ========== -->
+    <section id="tab-sincronizar" class="tab-content">
+      <div class="dashboard-section">
+        <h2>🔄 Conectar y Sincronizar Juegos</h2>
+        <p class="section-desc">US002: Importa tus estadísticas automáticamente desde las APIs oficiales</p>
+
+        <div class="juegos-sync-grid">
+          <!-- League of Legends -->
+          <div class="sync-card" data-juego="lol">
+            <img src="img/lol-logo.png" alt="League of Legends" class="sync-logo" />
+            <h3>League of Legends</h3>
+            <div class="sync-status" id="status-lol">
+              <span class="status-badge desconectado">❌ Desconectado</span>
+            </div>
+            <button class="btn-sync" onclick="conectarJuego('lol')">Conectar Cuenta</button>
+            <p class="sync-info" id="info-lol"></p>
+          </div>
+
+          <!-- Valorant -->
+          <div class="sync-card" data-juego="valorant">
+            <img src="img/valorant-logo.png" alt="Valorant" class="sync-logo" />
+            <h3>Valorant</h3>
+            <div class="sync-status" id="status-valorant">
+              <span class="status-badge desconectado">❌ Desconectado</span>
+            </div>
+            <button class="btn-sync" onclick="conectarJuego('valorant')">Conectar Cuenta</button>
+            <p class="sync-info" id="info-valorant"></p>
+          </div>
+
+          <!-- Dota 2 -->
+          <div class="sync-card" data-juego="dota2">
+            <img src="img/dota-logo.png" alt="Dota 2" class="sync-logo" />
+            <h3>Dota 2</h3>
+            <div class="sync-status" id="status-dota2">
+              <span class="status-badge desconectado">❌ Desconectado</span>
+            </div>
+            <button class="btn-sync" onclick="conectarJuego('dota2')">Conectar Cuenta</button>
+            <p class="sync-info" id="info-dota2"></p>
+          </div>
+
+          <!-- CS2 -->
+          <div class="sync-card" data-juego="cs2">
+            <img src="img/cs-logo.png" alt="CS2" class="sync-logo" />
+            <h3>Counter-Strike 2</h3>
+            <div class="sync-status" id="status-cs2">
+              <span class="status-badge desconectado">❌ Desconectado</span>
+            </div>
+            <button class="btn-sync" onclick="conectarJuego('cs2')">Conectar Cuenta</button>
+            <p class="sync-info" id="info-cs2"></p>
+          </div>
+        </div>
+
+        <div class="sync-info-box">
+          <h3>ℹ️ Información de Sincronización</h3>
+          <ul>
+            <li>✓ Autenticación segura mediante OAuth 2.0</li>
+            <li>✓ Importación de estadísticas de los últimos 6 meses</li>
+            <li>✓ Actualización automática diaria</li>
+            <li>✓ Puedes desconectar tu cuenta en cualquier momento</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== US004: HISTORIAL DE EQUIPOS ========== -->
+    <section id="tab-historial" class="tab-content">
+      <div class="dashboard-section">
+        <h2>📜 Historial Profesional</h2>
+        <p class="section-desc">US004: Gestiona tu historial de equipos y logros competitivos</p>
+
+        <button class="btn-add" onclick="abrirModalEquipo()">+ Agregar Equipo</button>
+
+        <div class="historial-timeline" id="historialTimeline">
+          <!-- Se llenará dinámicamente -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Agregar Equipo -->
+    <div id="modalEquipo" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="cerrarModalEquipo()">&times;</span>
+        <h2>Agregar Equipo al Historial</h2>
+
+        <form id="formAgregarEquipo">
+          <div class="input-group">
+            <label>Nombre del Equipo *</label>
+            <input type="text" id="equipo-nombre" required />
+          </div>
+
+          <div class="input-group">
+            <label>Organización</label>
+            <input type="text" id="equipo-org" placeholder="Ej: Cloud9, Team Liquid" />
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label>Fecha Inicio *</label>
+              <input type="date" id="equipo-inicio" required />
+            </div>
+
+            <div class="input-group">
+              <label>Fecha Fin</label>
+              <input type="date" id="equipo-fin" />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Rol Desempeñado *</label>
+            <input type="text" id="equipo-rol" placeholder="Ej: Mid Laner, Support" required />
+          </div>
+
+          <div class="input-group">
+            <label>Logros Destacados</label>
+            <textarea id="equipo-logros" rows="3" placeholder="Torneos ganados, posiciones destacadas..."></textarea>
+          </div>
+
+          <div class="form-buttons">
+            <button type="button" class="btn-cancelar" onclick="cerrarModalEquipo()">Cancelar</button>
+            <button type="submit" class="btn-actualizar">Guardar Equipo</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ========== US006: MÉTRICAS AVANZADAS ========== -->
+    <section id="tab-metricas" class="tab-content">
+      <div class="dashboard-section">
+        <h2>📊 Métricas Avanzadas de Rendimiento</h2>
+        <p class="section-desc">US006: Visualiza tus estadísticas y métricas en tiempo real</p>
+
+        <div class="filtros-metricas">
+          <select id="filtro-juego" onchange="filtrarMetricas()">
+            <option value="todos">Todos los Juegos</option>
+            <option value="lol">League of Legends</option>
+            <option value="valorant">Valorant</option>
+            <option value="dota2">Dota 2</option>
+            <option value="cs2">CS2</option>
+          </select>
+
+          <select id="filtro-periodo" onchange="filtrarMetricas()">
+            <option value="mes">Último Mes</option>
+            <option value="3meses">Últimos 3 Meses</option>
+            <option value="6meses">Últimos 6 Meses</option>
+            <option value="año">Último Año</option>
+          </select>
+
+          <button class="btn-exportar-mini" onclick="exportarReporteMetricas()">
+            📄 Exportar Reporte
+          </button>
+        </div>
+
+        <div class="metricas-grid">
+          <div class="metrica-card">
+            <h3>⚡ Tiempo de Reacción Promedio</h3>
+            <div class="metrica-valor">245ms</div>
+            <div class="metrica-comparacion">↑ 12% mejor que el mes pasado</div>
+            <button class="btn-ver-detalle" onclick="verDetalleMetrica('reaccion')">Ver Detalles</button>
+          </div>
+
+          <div class="metrica-card">
+            <h3>🎯 KDA Promedio</h3>
+            <div class="metrica-valor">3.8</div>
+            <div class="metrica-comparacion">↑ 0.5 mejor que promedio histórico</div>
+            <button class="btn-ver-detalle" onclick="verDetalleMetrica('kda')">Ver Detalles</button>
+          </div>
+
+          <div class="metrica-card">
+            <h3>🏆 Impacto en Objetivos</h3>
+            <div class="metrica-valor">78%</div>
+            <div class="metrica-comparacion">↓ 3% menor que el mes pasado</div>
+            <button class="btn-ver-detalle" onclick="verDetalleMetrica('impacto')">Ver Detalles</button>
+          </div>
+
+          <div class="metrica-card">
+            <h3>📈 Tasa de Victoria</h3>
+            <div class="metrica-valor">62%</div>
+            <div class="metrica-comparacion">↑ 8% mejor que promedio histórico</div>
+            <button class="btn-ver-detalle" onclick="verDetalleMetrica('victoria')">Ver Detalles</button>
+          </div>
+        </div>
+
+        <div class="grafico-placeholder">
+          <h3>📈 Evolución Temporal de Rendimiento</h3>
+          <p>[Aquí irían gráficos interactivos con Chart.js o similar]</p>
+          <div class="chart-box">
+            anvas id="chartRendimiento"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== US007: LOGROS Y CERTIFICACIONES ========== -->
+    <section id="tab-logros" class="tab-content">
+      <div class="dashboard-section">
+        <h2>🏆 Logros y Certificaciones</h2>
+        <p class="section-desc">US007: Carga manualmente tus logros y certificaciones profesionales</p>
+
+        <button class="btn-add" onclick="abrirModalLogro()">+ Agregar Logro</button>
+
+        <div class="logros-grid" id="logrosGrid">
+          <!-- Se llenará dinámicamente -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Agregar Logro -->
+    <div id="modalLogro" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="cerrarModalLogro()">&times;</span>
+        <h2>Agregar Logro o Certificación</h2>
+
+        <form id="formAgregarLogro">
+          <div class="input-group">
+            <label>Título del Logro *</label>
+            <input type="text" id="logro-titulo" required placeholder="Ej: Campeón LVP 2024" />
+          </div>
+
+          <div class="input-group">
+            <label>Descripción</label>
+            <textarea id="logro-descripcion" rows="3" placeholder="Describe el logro o certificación..."></textarea>
+          </div>
+
+          <div class="input-group">
+            <label>Fecha *</label>
+            <input type="date" id="logro-fecha" required />
+          </div>
+
+          <div class="input-group">
+            <label>Evidencia (Imagen/PDF - Máx 5MB)</label>
+            <input type="file" id="logro-evidencia" accept=".jpg,.jpeg,.png,.pdf" onchange="validarArchivo(this)" />
+            <span class="file-info">Formatos: JPG, PNG, PDF (máx 5MB)</span>
+          </div>
+
+          <div class="form-buttons">
+            <button type="button" class="btn-cancelar" onclick="cerrarModalLogro()">Cancelar</button>
+            <button type="submit" class="btn-actualizar">Guardar Logro</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ========== US008: NOTIFICACIONES ========== -->
+    <section id="tab-notificaciones" class="tab-content">
+      <div class="dashboard-section">
+        <h2>🔔 Centro de Notificaciones</h2>
+        <p class="section-desc">US008: Historial de actividad y notificaciones de tu perfil</p>
+
+        <div class="notificaciones-filtros">
+          <button class="filtro-btn active" onclick="filtrarNotificaciones('todas')">Todas</button>
+          <button class="filtro-btn" onclick="filtrarNotificaciones('visitas')">Visitas a Perfil</button>
+          <button class="filtro-btn" onclick="filtrarNotificaciones('mensajes')">Mensajes</button>
+          <button class="filtro-btn" onclick="filtrarNotificaciones('sistema')">Sistema</button>
+        </div>
+
+        <div class="notificaciones-lista" id="notificacionesLista">
+          <!-- Se llenará dinámicamente -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== US009: BACKUP Y EXPORTACIÓN ========== -->
+    <section id="tab-exportar" class="tab-content">
+      <div class="dashboard-section">
+        <h2>💾 Backup y Exportación de Datos</h2>
+        <p class="section-desc">US009: Descarga y exporta todos tus datos del perfil</p>
+
+        <div class="exportar-container">
+          <h3>Selecciona las secciones a exportar:</h3>
+
+          <div class="secciones-exportar">
+            <label class="checkbox-export">
+              <input type="checkbox" name="export" value="perfil" checked />
+              <span>📝 Información Personal</span>
+            </label>
+
+            <label class="checkbox-export">
+              <input type="checkbox" name="export" value="estadisticas" checked />
+              <span>📊 Estadísticas de Juegos</span>
+            </label>
+
+            <label class="checkbox-export">
+              <input type="checkbox" name="export" value="historial" checked />
+              <span>📜 Historial de Equipos</span>
+            </label>
+
+            <label class="checkbox-export">
+              <input type="checkbox" name="export" value="logros" checked />
+              <span>🏆 Logros y Certificaciones</span>
+            </label>
+
+            <label class="checkbox-export">
+              <input type="checkbox" name="export" value="notificaciones" />
+              <span>🔔 Historial de Notificaciones</span>
+            </label>
+          </div>
+
+          <h3>Selecciona el formato de exportación:</h3>
+
+          <div class="formatos-exportar">
+            <label class="radio-format">
+              <input type="radio" name="formato" value="json" checked />
+              <span>JSON (Datos estructurados)</span>
+            </label>
+
+            <label class="radio-format">
+              <input type="radio" name="formato" value="csv" />
+              <span>CSV (Excel compatible)</span>
+            </label>
+
+            <label class="radio-format">
+              <input type="radio" name="formato" value="pdf" />
+              <span>PDF (Reporte visual)</span>
+            </label>
+          </div>
+
+          <div class="progress-export" id="progressExport" style="display: none;">
+            <div class="progress-bar-export">
+              <div class="progress-fill-export" id="progressFillExport"></div>
+            </div>
+            <p id="progressTextExport">Generando backup...</p>
+          </div>
+
+          <button class="btn-generar-backup" onclick="generarBackup()">
+            📦 Generar Backup
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MÓDULO DE SCOUTING (US501-US510) ========== -->
+    <section id="tab-scouting" class="tab-content">
+      <div class="dashboard-section">
+        <h2>🔍 Módulo de Scouting</h2>
+        <p class="section-desc">Encuentra y gestiona jugadores emergentes para tu equipo</p>
+
+        <div class="scouting-layout">
+          <!-- ========== US503: LISTAS DE SCOUTING (SIDEBAR) ========== -->
+          <aside class="scouting-sidebar">
+            <div class="sidebar-header">
+              <h3>📋 Mis Listas</h3>
+              <button class="btn-add-mini" onclick="abrirModalCrearLista()">+ Nueva</button>
+            </div>
+
+            <div class="listas-container" id="listasScoutingContainer">
+              <!-- Se llenará dinámicamente -->
+            </div>
+
+            <!-- US508: Alertas guardadas -->
+            <div class="sidebar-section">
+              <h4>🔔 Alertas de Talento</h4>
+              <button class="btn-config-alertas" onclick="abrirModalAlertas()">
+                ⚙️ Configurar
+              </button>
+              <div id="alertasActivas"></div>
+            </div>
+
+            <!-- US509: Integraciones -->
+            <div class="sidebar-section">
+              <h4>🔗 Integraciones</h4>
+              <button class="btn-integracion" onclick="conectarPlataforma('battlefy')">
+                Battlefy
+              </button>
+              <button class="btn-integracion" onclick="conectarPlataforma('challonge')">
+                Challonge
+              </button>
+            </div>
+          </aside>
+
+          <!-- ========== US501: BÚSQUEDA AVANZADA ========== -->
+          <main class="scouting-main">
+            <div class="search-section">
+              <h3>🔎 Búsqueda Avanzada de Jugadores</h3>
+
+              <form id="formBusquedaScouting" class="filtros-scouting">
+                <div class="filtro-group">
+                  <label>Juego</label>
+                  <select id="filtro-scout-juego" onchange="habilitarBusqueda()">
+                    <option value="">Seleccionar...</option>
+                    <option value="League of Legends">League of Legends</option>
+                    <option value="Valorant">Valorant</option>
+                    <option value="Dota 2">Dota 2</option>
+                    <option value="CS2">CS2</option>
+                  </select>
+                </div>
+
+                <div class="filtro-group">
+                  <label>Rol</label>
+                  <select id="filtro-scout-rol" onchange="habilitarBusqueda()">
+                    <option value="">Seleccionar...</option>
+                    <option value="Top Laner">Top Laner</option>
+                    <option value="Jungler">Jungler</option>
+                    <option value="Mid Laner">Mid Laner</option>
+                    <option value="ADC">ADC</option>
+                    <option value="Support">Support</option>
+                    <option value="Duelist">Duelist</option>
+                    <option value="Controller">Controller</option>
+                    <option value="Sentinel">Sentinel</option>
+                    <option value="Initiator">Initiator</option>
+                  </select>
+                </div>
+
+                <div class="filtro-group">
+                  <label>Edad</label>
+                  <div class="filtro-rango">
+                    <input type="number" id="filtro-edad-min" placeholder="Min" min="16" max="40" onchange="habilitarBusqueda()" />
+                    <span>-</span>
+                    <input type="number" id="filtro-edad-max" placeholder="Max" min="16" max="40" onchange="habilitarBusqueda()" />
+                  </div>
+                </div>
+
+                <div class="filtro-group">
+                  <label>Región</label>
+                  <select id="filtro-scout-region" onchange="habilitarBusqueda()">
+                    <option value="">Seleccionar...</option>
+                    <option value="LAN">LAN (Latinoamérica Norte)</option>
+                    <option value="LAS">LAS (Latinoamérica Sur)</option>
+                    <option value="NA">NA (Norteamérica)</option>
+                    <option value="EUW">EUW (Europa Oeste)</option>
+                    <option value="KR">KR (Corea)</option>
+                    <option value="BR">BR (Brasil)</option>
+                  </select>
+                </div>
+
+                <div class="filtro-actions">
+                  <button type="button" class="btn-restablecer" onclick="restablecerFiltros()">
+                    🔄 Restablecer
+                  </button>
+                  <button type="submit" class="btn-buscar" id="btnBuscarScouting" disabled>
+                    🔍 Buscar Jugadores
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- ========== US501: RESULTADOS DE BÚSQUEDA ========== -->
+            <div class="resultados-section" id="resultadosScoutingSection" style="display: none;">
+              <div class="resultados-header">
+                <h3>Resultados: <span id="totalResultados">0</span> jugadores encontrados</h3>
+                <div class="resultados-opciones">
+                  <select id="ordenarPor" onchange="ordenarResultados()">
+                    <option value="relevancia">Más relevantes</option>
+                    <option value="kda">Mayor KDA</option>
+                    <option value="winrate">Mayor Winrate</option>
+                    <option value="reciente">Más recientes</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="jugadores-grid" id="jugadoresGrid">
+                <!-- Se llenará dinámicamente -->
+              </div>
+
+              <div class="paginacion" id="paginacionContainer" style="display: none;">
+                <!-- Paginación para más de 20 resultados -->
+              </div>
+            </div>
+
+            <!-- ========== US502: PERFIL DETALLADO ========== -->
+            <div class="perfil-detallado-overlay" id="perfilDetalladoOverlay" style="display: none;">
+              <div class="perfil-detallado-content">
+                <button class="btn-cerrar-perfil" onclick="cerrarPerfilDetallado()">✕</button>
+                
+                <div class="perfil-detallado-body" id="perfilDetalladoBody">
+                  <!-- Se llenará dinámicamente -->
+                </div>
+              </div>
+            </div>
+
+            <!-- ========== US505: VISTA DE LISTA SELECCIONADA ========== -->
+            <div class="lista-detalle-section" id="listaDetalleSection" style="display: none;">
+              <div class="lista-header">
+                <div>
+                  <h3 id="listaDetalleNombre">Mi Lista</h3>
+                  <p id="listaDetalleDescripcion"></p>
+                </div>
+                <div class="lista-actions">
+                  <button class="btn-exportar-mini" onclick="abrirModalExportarLista()">
+                    📄 Exportar
+                  </button>
+                  <button class="btn-editar" onclick="editarLista()">
+                    ✏️ Editar
+                  </button>
+                  <button class="btn-eliminar" onclick="eliminarListaActual()">
+                    🗑️ Eliminar
+                  </button>
+                </div>
+              </div>
+
+              <!-- US505: Métricas agregadas -->
+              <div class="metricas-agregadas" id="metricasAgregadas">
+                <!-- Se llenará dinámicamente -->
+              </div>
+
+              <div class="lista-jugadores" id="listaJugadoresContainer">
+                <!-- Se llenará dinámicamente con US504 y US507 -->
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MODAL: CREAR LISTA (US503) ========== -->
+    <div id="modalCrearLista" class="modal">
+      <div class="modal-content modal-small">
+        <span class="close" onclick="cerrarModalCrearLista()">&times;</span>
+        <h2>📋 Crear Lista de Scouting</h2>
+
+        <form id="formCrearLista">
+          <div class="input-group">
+            <label>Nombre de la Lista *</label>
+            <input type="text" id="lista-nombre" placeholder="Ej: Candidatos Mid Laner" required />
+          </div>
+
+          <div class="input-group">
+            <label>Descripción</label>
+            <textarea id="lista-descripcion" rows="3" placeholder="Describe el propósito de esta lista..."></textarea>
+          </div>
+
+          <div class="form-buttons">
+            <button type="button" class="btn-cancelar" onclick="cerrarModalCrearLista()">Cancelar</button>
+            <button type="submit" class="btn-actualizar" id="btnCrearLista" disabled>Crear Lista</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- ========== MODAL: AÑADIR A LISTA (US504) ========== -->
+    <div id="modalAnadirALista" class="modal">
+      <div class="modal-content modal-small">
+        <span class="close" onclick="cerrarModalAnadirALista()">&times;</span>
+        <h2>➕ Añadir a Lista de Scouting</h2>
+
+        <div class="jugador-preview" id="jugadorPreview">
+          <!-- Preview del jugador -->
+        </div>
+
+        <div class="input-group">
+          <label>Selecciona una lista</label>
+          <select id="selectListaDestino" required>
+            <option value="">Seleccionar lista...</option>
+          </select>
+        </div>
+
+        <div class="form-buttons">
+          <button type="button" class="btn-cancelar" onclick="cerrarModalAnadirALista()">Cancelar</button>
+          <button type="button" class="btn-actualizar" onclick="confirmarAnadirALista()">Añadir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== MODAL: CONFIGURAR ALERTAS (US508) ========== -->
+    <div id="modalAlertas" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="cerrarModalAlertas()">&times;</span>
+        <h2>🔔 Configurar Alertas de Nuevos Talentos</h2>
+
+        <p class="section-desc">Recibe notificaciones cuando nuevos jugadores cumplan estos criterios</p>
+
+        <form id="formAlertas">
+          <div class="form-row">
+            <div class="input-group">
+              <label>Juego</label>
+              <select id="alerta-juego" required>
+                <option value="">Seleccionar...</option>
+                <option value="League of Legends">League of Legends</option>
+                <option value="Valorant">Valorant</option>
+                <option value="Dota 2">Dota 2</option>
+                <option value="CS2">CS2</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label>Rol</label>
+              <select id="alerta-rol">
+                <option value="">Cualquiera</option>
+                <option value="Mid Laner">Mid Laner</option>
+                <option value="ADC">ADC</option>
+                <option value="Support">Support</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>KDA Mínimo</label>
+            <input type="number" id="alerta-kda" step="0.1" min="0" placeholder="Ej: 3.0" />
+          </div>
+
+          <div class="input-group">
+            <label>Win Rate Mínimo (%)</label>
+            <input type="number" id="alerta-winrate" min="0" max="100" placeholder="Ej: 55" />
+          </div>
+
+          <div class="form-buttons">
+            <button type="button" class="btn-cancelar" onclick="cerrarModalAlertas()">Cancelar</button>
+            <button type="submit" class="btn-actualizar">Guardar Alerta</button>
+          </div>
+        </form>
+
+        <div class="alertas-guardadas" id="alertasGuardadasList">
+          <h3>Alertas Activas</h3>
+          <!-- Lista de alertas guardadas -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== MODAL: EXPORTAR LISTA (US506) ========== -->
+    <div id="modalExportarLista" class="modal">
+      <div class="modal-content modal-small">
+        <span class="close" onclick="cerrarModalExportarLista()">&times;</span>
+        <h2>📄 Exportar Lista de Scouting</h2>
+
+        <div class="input-group">
+          <label>Formato de Exportación</label>
+          <div class="formatos-exportar">
+            <label class="radio-format">
+              <input type="radio" name="formato-lista" value="pdf" checked />
+              <span>PDF (Con fotos y métricas)</span>
+            </label>
+
+            <label class="radio-format">
+              <input type="radio" name="formato-lista" value="csv" />
+              <span>CSV (Excel compatible)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="progress-export" id="progressExportLista" style="display: none;">
+          <div class="progress-bar-export">
+            <div class="progress-fill-export" id="progressFillExportLista"></div>
+          </div>
+          <p id="progressTextExportLista">Generando archivo...</p>
+        </div>
+
+        <div class="form-buttons">
+          <button type="button" class="btn-cancelar" onclick="cerrarModalExportarLista()">Cancelar</button>
+          <button type="button" class="btn-actualizar" onclick="confirmarExportarLista()">
+            📥 Descargar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="footer-contenido">
+        <div class="footer-col">
+          <img src="img/logo.png" alt="Logo" class="logo-footer" />
+          <p>La plataforma definitiva para análisis de eSports</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Recursos</h4>
+          <ul>
+            <li><a href="#">Docs</a></li>
+            <li><a href="#">APIs</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Ayuda</h4>
+          <ul>
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="copyright">
+        © 2025 eSports Analytics Platform. Todos los derechos reservados.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="scouting.js"></script>
+
+  </body>
+</html>

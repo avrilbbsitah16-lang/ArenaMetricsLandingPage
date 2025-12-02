@@ -14,10 +14,10 @@
         <span class="logo-text">ArenaMetrics</span>
       </div>
 
-      <button class="menu-toggle">☰</button>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
       <nav>
-        <ul class="menu-horizontal">
+        <ul class="menu-horizontal" id="menuHorizontal">
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#jugadores">Jugadores</a></li>
           <li><a href="#entrenadores">Entrenadores</a></li>
@@ -26,8 +26,12 @@
       </nav>
 
       <div class="auth-buttons">
-        <button class="btn-auth">Iniciar Sesión</button>
-        <button class="btn-auth">Registro</button>
+        <button class="btn-auth" onclick="window.location.href='login.html'">
+          Iniciar Sesión
+        </button>
+        <button class="btn-auth" onclick="window.location.href='registro.html'">
+          Registro
+        </button>
       </div>
     </header>
 
@@ -63,12 +67,18 @@
 
           <!-- Botones CTA centrados -->
           <div class="botones-hero">
-            <button class="btn-cta btn-jugador">
+            <button
+              class="btn-cta btn-jugador"
+              onclick="window.location.href='registro.html'"
+            >
               <span class="btn-titulo">Soy Jugador</span>
               <span class="btn-subtitulo">Crear perfil 👤</span>
             </button>
 
-            <button class="btn-cta btn-entrenador">
+            <button
+              class="btn-cta btn-entrenador"
+              onclick="window.location.href='registro.html'"
+            >
               <span class="btn-titulo">Soy Entrenador</span>
               <span class="btn-subtitulo">Ver dashboards 📊</span>
             </button>
@@ -120,9 +130,16 @@
             plataforma" 💡
           </p>
 
-          <button class="btn-cta-secundario">Crear Perfil →</button>
+          <button
+            class="btn-cta-secundario"
+            onclick="window.location.href='registro.html'"
+          >
+            Crear Perfil →
+          </button>
           <br /><br />
-          <a href="#" class="link-detalle">Ver a detalle las características</a>
+          <a href="#caracteristicas" class="link-detalle"
+            >Ver a detalle las características</a
+          >
         </div>
       </div>
     </section>
@@ -154,9 +171,16 @@
             estratégico" 💼
           </p>
 
-          <button class="btn-cta-secundario">Solicitar demo →</button>
+          <button
+            class="btn-cta-secundario"
+            onclick="window.location.href='registro.html'"
+          >
+            Solicitar demo →
+          </button>
           <br /><br />
-          <a href="#" class="link-detalle">Ver a detalle las características</a>
+          <a href="#caracteristicas" class="link-detalle"
+            >Ver a detalle las características</a
+          >
         </div>
 
         <div class="cont-ini-img">
@@ -170,7 +194,7 @@
     </section>
 
     <!-- ========== MOCKUP 4: VISUALIZA LA PLATAFORMA ========== -->
-    <section class="seccion-inicio seccion-visualiza">
+    <section id="caracteristicas" class="seccion-inicio seccion-visualiza">
       <div class="circulo-decorativo circulo-7"></div>
       <div class="circulo-decorativo circulo-8"></div>
 
@@ -334,9 +358,10 @@
           <li>✓ Sin spam, solo actualizaciones importantes</li>
         </ul>
 
-        <form class="form-email">
+        <form class="form-email" onsubmit="enviarEmail(event)">
           <input
             type="email"
+            id="emailContacto"
             placeholder="Para las mejores actualizaciones ingresa tu email"
             required
           />
@@ -352,10 +377,10 @@
           <img src="img/logo.png" alt="Logo" class="logo-footer" />
           <p>La plataforma definitiva para análisis de eSports</p>
           <div class="redes-sociales">
-            <a href="#">📘</a>
-            <a href="#">🐦</a>
-            <a href="#">📷</a>
-            <a href="#">🎮</a>
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Discord">🎮</a>
           </div>
         </div>
 
